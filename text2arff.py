@@ -10,7 +10,7 @@ import numpy as np
 import ntpath
 
 #path to the dataset
-test = '/Users/apple/Desktop/research/webkb.txt'
+test = 'C:\\Users\\Dsamariya\\Desktop\\Data\\r8.txt'
 
 # define column names
 names = ['classLabel', 'text']
@@ -22,7 +22,7 @@ sentences = np.array(df.text)
 classLabels = np.array(df.classLabel)
 dirPath, fileName = ntpath.split(test)
 
-myset = set(classLabels)
+#myset = set(classLabels)
 
 # print(sentences[0])
 
@@ -35,19 +35,16 @@ output = open(outputFile, "w")
 
 last = len(sentences)
 
-print(last)
-
 print ("Converting to ARFF file.\n")
   
 title = str(name)
 
 output.write("@relation " + str(title) + "\n\n")
 
+output.write( "@attribute text string " + "\n")
+output.write( "@attribute @@class@@ " + "{" + ",".join(set(classLabels)) + "}" + "\n\n")
 
-output.write( "@attribute text string " + "\n\n")
-output.write( "@attribute @@class@@ " + str(myset) + "\n")
-
-output.write("@data" + "\n\n")
+output.write("@data" + "\n")
 
 for i in range (0, last):
     output.write( "\'" + str(sentences[i]) + "\'" + "," + str(classLabels[i]) +  "\n" )
