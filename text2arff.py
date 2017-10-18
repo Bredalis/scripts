@@ -36,7 +36,7 @@ output = open(outputFile, "w")
 last = len(sentences)
 
 print ("Converting to ARFF file.\n")
-  
+
 title = str(name)
 
 output.write("@relation " + str(title) + "\n\n")
