@@ -1,5 +1,5 @@
 #!/bin/sh
-# author: Dsamariya
+# author: Durgesh Samariya
 # This script merge all CSV file in one file.
 # I am using this script to merge train.csv and text.csv file in one CSV.
 
